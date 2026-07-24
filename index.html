@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANIM - Validação da Missão</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#0d1117;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#00ff99;
+}
+
+.container{
+
+    max-width:700px;
+    margin:50px auto;
+    border:3px solid #00ff99;
+    padding:35px;
+    background:#161b22;
+    box-shadow:0 0 25px #00ff99;
+
+}
+
+h1{
+
+    text-align:center;
+    margin-bottom:10px;
+
+}
+
+h2{
+
+    text-align:center;
+    color:white;
+
+}
+
+p{
+
+    color:white;
+    line-height:1.6;
+
+}
+
+input{
+
+    width:100%;
+    padding:15px;
+    font-size:20px;
+    text-align:center;
+    margin-top:20px;
+    border:none;
+    border-radius:8px;
+
+}
+
+button{
+
+    width:100%;
+    padding:15px;
+    margin-top:20px;
+    background:#00aa66;
+    color:white;
+    font-size:20px;
+    border:none;
+    cursor:pointer;
+    border-radius:8px;
+
+}
+
+button:hover{
+
+    background:#00cc77;
+
+}
+
+#resultado{
+
+    margin-top:30px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+
+}
+
+#proxima{
+
+    display:none;
+    margin-top:30px;
+    text-align:center;
+
+}
+
+a{
+
+    display:inline-block;
+    margin-top:20px;
+    padding:18px 35px;
+    background:#0066ff;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:20px;
+
+}
+
+a:hover{
+
+    background:#2d7dff;
+
+}
+
+.terminal{
+
+    background:black;
+    color:#00ff99;
+    padding:15px;
+    margin-bottom:25px;
+    font-family:Consolas, monospace;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="terminal">
+
+> SERVIDOR DA AGÊNCIA NACIONAL DE INVESTIGAÇÕES MATEMÁTICAS <br>
+> STATUS: MISSÃO 001 FINALIZADA <br>
+> AGUARDANDO VALIDAÇÃO DO AGENTE...
+
+</div>
+
+<h1>VALIDAÇÃO DA MISSÃO</h1>
+
+<h2>Arquivo 001 - O Desaparecimento</h2>
+
+<p>
+
+Digite abaixo o <strong>código final</strong> encontrado após concluir todos os desafios do dossiê.
+
+</p>
+
+<input
+type="text"
+id="codigo"
+placeholder="Digite o código">
+
+<button onclick="validar()">
+
+VALIDAR MISSÃO
+
+</button>
+
+<div id="resultado"></div>
+
+<div id="proxima">
+
+<h2>MISSÃO CONCLUÍDA!</h2>
+
+<p>
+
+Parabéns, Agente.
+
+A investigação foi atualizada.
+
+Um novo arquivo está disponível.
+
+</p>
+
+<a id="linkMissao"
+href="#">
+
+ABRIR ARQUIVO 002
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+const codigoCorreto = "7346";
+
+const proximaMissao = "https://SEU-LINK-DA-MISSAO-2";
+
+document.getElementById("linkMissao").href = proximaMissao;
+
+function validar(){
+
+let resposta = document.getElementById("codigo").value.trim();
+
+if(resposta === codigoCorreto){
+
+document.getElementById("resultado").innerHTML =
+"✅ Código correto! Acesso autorizado.";
+
+document.getElementById("resultado").style.color="#00ff99";
+
+document.getElementById("proxima").style.display="block";
+
+}else{
+
+document.getElementById("resultado").innerHTML =
+"❌ Código incorreto. Revise as evidências e tente novamente.";
+
+document.getElementById("resultado").style.color="#ff4444";
+
+document.getElementById("proxima").style.display="none";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
